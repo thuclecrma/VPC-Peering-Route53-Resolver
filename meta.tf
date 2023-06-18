@@ -23,3 +23,9 @@ data "aws_caller_identity" "client" {
 data "aws_region" "client" {
   provider = aws.client
 }
+
+data "aws_route53_resolver_endpoint" "global_services_inbound" {
+  resolver_endpoint_id = aws_route53_resolver_endpoint.global_services_inbound.id
+
+  provider = aws.global_services
+}
