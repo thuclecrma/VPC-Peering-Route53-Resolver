@@ -47,6 +47,8 @@ ping client.tl.internal
 ping gs.tl.internal
 ```
 
+***Note: If you provision more client-regions, from your client-instance, you can only ping global-services-instance and vice versa. That means you're NOT able to ping client-instance to client-instance***
+
 ## Clean-up resources
 ```
 terraform destroy --var-file local.tfvars
