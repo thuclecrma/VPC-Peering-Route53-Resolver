@@ -27,3 +27,27 @@ In this Project, you will create a Global Transit Network to allow N different c
 ### Query dns from Global-Services VPC (Dashed green arrows)
 
 - (1) The DNS query request will be sent directly to the Resolver and get the answer
+
+## How to test it out?
+
+1. Prepare `local.tfvars` which contents aws credentials account
+2. Provision infrastructure
+```
+terraform init
+terraform apply --var-file local.tfvars
+```
+3. Login AWS Console
+4. Choose region (`us-east-1`, `us-west-2`)
+5. Go to `Session Manager` and start new session -> choose either global-services instance or client instance.
+6. Ping other instance
+```
+# From global-service instance
+ping client.tl.internal
+# From client instance
+ping gs.tl.internal
+```
+
+## Clean-up resources
+```
+terraform destroy --var-file local.tfvars
+```
